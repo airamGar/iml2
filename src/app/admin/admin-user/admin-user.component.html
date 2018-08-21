@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-3">
+      <h4>Panel Administrador</h4>
+      <div class="list-group" id="sideNavAdmin" role="tablist">
+        <a class="list-group-item list-group-item-action active" data-toggle="list" routerLink="propiedades" role="tab">
+          <i class="far fa-building"></i> Propiedades</a>
+        <a class="list-group-item list-group-item-action " data-toggle="list" routerLink="agregarPropiedad" role="tab">
+          <i class="far fa-file-alt"></i> Publicar</a>
+        <a class="list-group-item list-group-item-action " data-toggle="list" routerLink="mensajes" role="tab">
+          <i class="far fa-comment-alt"></i> Mensajes</a>
+        <a class="list-group-item list-group-item-action " data-toggle="list" routerLink="perfil" role="tab">
+          <i class="far fa-user-circle"></i> Mi Perfil</a>
+      </div>
+
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
