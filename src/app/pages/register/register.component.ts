@@ -2,27 +2,45 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user';
+import { GLOBAL } from '../../services/global';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [UserService]
 })
 export class RegisterComponent implements OnInit {
   public user: User;
+  public status: string;
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _userService: UserService
   ) {
     this.user = new User (null, null, null, null, null, null, null, 'ROLE_USER', '');
   }
 
   ngOnInit() {
-    console.log(this.user.name, this.user.surname, this.user.contact);
   }
-  onSubmit() {
-    console.log(this.user);
+
+  onSubmit(registerForm) {
+    this._userService.register(this.user).subscribe(
+      response => {
+        this.status = 'success';
+        registerForm.reset();
+      },
+      error => {
+        this.status = 'error';
+        console.log(<any>error);
+      }
+    );
+  }
+
+  onlogin() {
+    this._router.navigate(['login']);
   }
 
 }

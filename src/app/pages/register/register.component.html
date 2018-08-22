@@ -2,16 +2,22 @@
   <div class="col-md-6 mx-auto">
     <div class="card">
       <div class="card-header">
-        <h3 class="text-center">Registrarme</h3>
+        <h3 class="text-center">Registrarme</h3>  
       </div>
       <div class="card-body">
         <!-- formulario de inicio de sesion -->
         <div class="container mb-3">
-          <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="alert alert-success" *ngIf ="status == 'success'">
+            El registo fue exitoso
+          </div>
+          <div class="alert alert-danger" *ngIf ="status == 'error'">
+            Este email ya ha sido registrado si olvidaste tu contraseña <a href="">haz click aquí</a> 
+          </div>
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" [(ngModel)]="form">
             <div class="form-row mb-3">
               <div class="col-md-6">
                 <label>Nombre:</label>
-                <input type="text" class="form-control" name="name" maxlength="5" #name="ngModel" [(ngModel)]="user.name" placeholder="Nombre"
+                <input type="text" class="form-control" name="name" maxlength="20" #name="ngModel" [(ngModel)]="user.name" placeholder="Nombre"
                   required>
                 <span *ngIf="!name.valid && name.touched" class="required small">
                   El nombre es obligatorio
@@ -36,7 +42,7 @@
             </div>
             <div class="form-group">
               <label>N° de Teléfono:</label>
-              <input type="text" class="form-control" name="phone" maxlength="80" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Teléfono"
+              <input type="text" class="form-control" name="phone" maxlength="10" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Teléfono"
                 required>
               <span *ngIf="!phone.valid && phone.touched" class="required small">
                 El teléfono es obligatorio
@@ -44,7 +50,7 @@
             </div>
             <div class="form-group">
               <label>Email:</label>
-              <input type="email" class="form-control" name="email" maxlength="80" #email="ngModel" [(ngModel)]="user.email" placeholder="Ingresa tu Email"
+              <input type="email" class="form-control" name="email" maxlength="40" #email="ngModel" [(ngModel)]="user.email" placeholder="Ingresa tu Email"
                 required>
               <small *ngIf="email.valid && email.touched" class="form-text text-muted">Ingresa tu Email para crear tu usuario </small>
               <span *ngIf="!email.valid && email.touched" class="required small">
@@ -53,7 +59,7 @@
             </div>
             <div class="form-group">
               <label>Contraseña</label>
-              <input type="password" class="form-control" name="password" maxlength="80" #password="ngModel" [(ngModel)]="user.password"
+              <input type="password" class="form-control" name="password" maxlength="12" #password="ngModel" [(ngModel)]="user.password"
                 placeholder="Ingresa tu contraseña" required>
               <small *ngIf="password.valid && password.touched" class="form-text text-muted">Ingresa una contraseña de al menos 8 caracteres </small>
               <span *ngIf="!password.valid && password.touched" class="required small">
@@ -69,6 +75,10 @@
                 Completa todos los datos para registrarte
               </span>
             </div>
+            <div class="col-12 text-center p-0 mt-3">
+                <label>¿Ya tienes una cuenta?</label>
+                <button type="button" class="btn btn-success btn-lg btn-block" (click)="onlogin()">Iniciar Sesión</button>
+              </div>
           </form>
         </div>
       </div>
