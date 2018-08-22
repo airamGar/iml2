@@ -1,3 +1,219 @@
-<p>
-  add works!
-</p>
+<div class="container mt-3">
+  <h3>Publicar Propiedad</h3>
+  <!-- tipo de propiedad -->
+  <small class="form-text text-muted">Selecciona el tipo de propiedad que deseas Publicar</small>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="selectTipoPropiedad">Tipo de Propiedad: </label>
+    </div>
+    <select class="custom-select" id="selectTipoPropiedad" name="selectTipoPropiedad">
+      <option value="1">Casa</option>
+      <option value="2">Departamento</option>
+      <option value="3">Suite</option>
+      <option value="4">Local Comercial</option>
+      <option value="5">Oficina</option>
+      <option value="6">Bodega o Galpon</option>
+      <option value="7">Negocio</option>
+    </select>
+  </div>
+  <!-- tipo de transaccion-->
+  <small class="form-text text-muted">Selecciona el tipo de transacción que deseas realizar</small>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="selectTipoTransaccion">Tipo de Transacción: </label>
+    </div>
+    <select class="custom-select" id="selectTipoTransaccion" name="selectTipoTransaccion">
+      <option value="1">Renta</option>
+      <option value="2">Venta</option>
+    </select>
+  </div>
+  <!-- Titulo de la publicacion-->
+  <small class="form-text text-muted">Ingresa el títtulo de la publicación max. 120 caracteres</small>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Título:</span>
+    </div>
+    <input type="text" class="form-control" id="titulo" name="titulo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <!-- subir fotos -->
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Subir Imagenes</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="subirFoto">
+      </div>
+    </form>
+  </div>
+  <!-- precio -->
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">Ingresa el Precio incluido la alícuota y el IVA si aplica</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Precio:</span>
+          </div>
+          <input type="text" class="form-control" id="titulo" name="precio" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">Seleccione ¿Precio fijo o Negociable?</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="tipoPrecio">Seleccione: </label>
+          </div>
+          <select class="custom-select" id="tipoPrecio" name="tipoPrecio">
+            <option value="1">Precio Fijo</option>
+            <option value="2">Negociable</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Datos Generales -->
+    <!-- Amoblado -->
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">¿Esta amoblada la propiedad?</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="amoblada">Amoblado: </label>
+          </div>
+          <select class="custom-select" id="amoblada" name="amoblada">
+            <option value="1">No</option>
+            <option value="2">Si</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Habitaciones -->
+    <div class="col-md-6">
+      <small class="form-text text-muted">Numero de Habitaciones</small>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Habitaciones:</span>
+        </div>
+        <input type="text" class="form-control" id="habitaciones" name="habitaciones" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+    <!-- Baños -->
+    <div class="col-md-6">
+      <small class="form-text text-muted">Numero de Baños</small>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Baños:</span>
+        </div>
+        <input type="text" class="form-control" id="baños" name="baños" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+    <!-- nueva fila -->
+    <!-- Parqueaderos -->
+    <div class="col-md-6">
+      <small class="form-text text-muted">N° de Parqueaderos</small>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Parqueaderos:</span>
+        </div>
+        <input type="text" class="form-control" id="parqueo" name="parqueo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+    <!-- Metros Cuadrados -->
+    <div class="col-md-6">
+      <small class="form-text text-muted">Metros Cuadrados</small>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="metros">Mt2:</span>
+        </div>
+        <input type="text" class="form-control" id="metros" name="metros" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+    <!-- Antiguedad -->
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">¿Antiguedad de la propiedad?</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="antiguedad">Antiguedad: </label>
+          </div>
+          <select class="custom-select" id="antiguedad" name="antiguedad">
+            <option value="1">En Proyecto</option>
+            <option value="2">A estrenar</option>
+            <option value="3">Menor a 5 años</option>
+            <option value="4">de 5 a 10 años</option>
+            <option value="5">de 10 a 25 años</option>
+            <option value="6">25 años o mas</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Linea telefonica -->
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">¿Posee linea telefonica?</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="telefono">Teléfono: </label>
+          </div>
+          <select class="custom-select" id="telefono" name="guardiania">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Guardiania -->
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">¿Posee Guardiania?</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="guardiania">Guardiania: </label>
+          </div>
+          <select class="custom-select" id="guardiania" name="guardiania">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Mascotas -->
+    <div class="col-md-6">
+      <div>
+        <small class="form-text text-muted">¿Acepta mascotas?</small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="mascota">Mascotas:</label>
+          </div>
+          <select class="custom-select" id="mascota" name="mascota">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Descripcion -->
+  <div>
+    <div class="form-group">
+      <h5>Descripcion de la propiedad:</h5>
+      <small class="form-text text-muted">Ingresa una descripción detallada de la propiedad</small>
+      <textarea class="form-control" id="descipcion" name="descipcion" rows="3" placeholder="Descripción"></textarea>
+    </div>
+  </div>
+  <!-- ubicacion -->
+  <h5 class="my-3">Ubicacion de la Propiedad</h5>
+  <div class="row">
+    <div class="offset-md-1 col-md-10">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911059029816!2d-78.50314558544513!3d-0.21162209984558933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a88549f56f9%3A0xd8af4996c7aac79!2sAcademia+de+Desarrollo+Personal+ADP!5e0!3m2!1ses!2sec!4v1531347875955"
+        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen id="maps" name="maps"></iframe>
+
+    </div>
+  </div>
+  <!-- Boton guardar y publicar -->
+  <div class="my-5">
+    <button type="button" class="btn btn-danger btn-lg btn-block" (click)="onClickGuardarPropiedad()">
+      <i class="fa fa-share-square"></i> Guardar y Publicar</button>
+  </div>
+</div>

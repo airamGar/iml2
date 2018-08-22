@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {UserService} from './services/user.service';
 
 
 import { AdminModule } from './admin/admin.module';
@@ -34,7 +35,7 @@ import { NoFoundComponent } from './pages/no-found/no-found.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

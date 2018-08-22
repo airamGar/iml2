@@ -2,23 +2,47 @@
   <div class="container">
     <a class="navbar-brand" routerLink='/home'>Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
+      aria-expanded="false" aria-label="Toggle navigation">Menu
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="ml-auto">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" routerLink='/home'><i class="fas fa-home mr-1"></i> Inicio</a>
+      <div class="ml-auto d-lg-flex text-center">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink='/home'>
+              <i class="fas fa-home mr-1"></i> Inicio</a>
+          </li>
+          </ul>
+          <ul class="navbar-nav mr-auto" *ngIf="status == 'salir'">
+          <li class="nav-item" >
+            <a class="nav-link" routerLink='/login'>
+              <i class="fas fa-sign-in-alt mr-1"></i> Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/register'>
+              <i class="fas fa-user mr-1"></i> Registrarme</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav" *ngIf="status == 'ingreso'">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Bienvenido, {{identity.name}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item dropdownHover" routerLink="adminUser/propiedades"><i class="far fa-building"></i> Propiedades</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dropdownHover" routerLink="adminUser/agregarPropiedad"><i class="far fa-file-alt"></i> Publicar</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dropdownHover" routerLink="adminUser/mensajes"><i class="far fa-comment-alt" ></i> Mensajes</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dropdownHover" routerLink="adminUser/perfil"><i class="far fa-user-circle"></i> Mi Perfil</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dropdownHover" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink='/login'><i class="fas fa-sign-in-alt mr-1"></i> Iniciar Sesión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink='/register'><i class="fas fa-user mr-1"></i> Registrarme</a>
-              </li>
-            </ul>
+        </ul>
+        <button type="button" class="btn btn-success">Publicar Gratis</button>
       </div>
     </div>
   </div>

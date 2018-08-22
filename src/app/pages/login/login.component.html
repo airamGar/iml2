@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 mx-auto mt-5">
+  <div class="col-md-4 mx-auto mt-5">
     <div class="card">
       <div class="card-header">
         <h3 class="text-center">Iniciar Sesión</h3>
@@ -7,10 +7,17 @@
       <div class="card-body">
         <!-- formulario de inicio de sesion -->
         <div class="container mb-3">
+            <div class="alert alert-success" *ngIf="status == 'success'">
+                Usuario logueado
+              </div>
+              <div class="alert alert-danger" *ngIf="status == 'error'">
+                Email o contraseña invalida si no te has registrado 
+                <a href=""> haz click aquí</a>
+              </div>
           <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin()">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="userLogin.email" placeholder="Ingresa tu Email" required>
+              <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="Ingresa tu Email" required>
               <small *ngIf="email.valid && email.touched" class="form-text text-muted">Ingresa el Email con el que creaste la cuenta</small>
               <span *ngIf="!email.valid && email.touched" class="required small">
                 El email es obligatorio
@@ -18,7 +25,7 @@
             </div>
             <div class="form-group">
               <label for="password">Contraseña</label>
-              <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="userLogin.password" placeholder="Ingresa tu contraseña" required> 
+              <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password" placeholder="Ingresa tu contraseña" required> 
               <small *ngIf="password.valid && password.touched" class="form-text text-muted">Ingresa tu contraseña</small>
               <span *ngIf="!password.valid && password.touched" class="required small">
                 El debes ingresar la contraseña

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 
@@ -28,7 +29,8 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AdminRoutingModule,
     HttpModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
 })

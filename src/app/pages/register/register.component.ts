@@ -17,13 +17,14 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router,
+    private router: Router,
     private _userService: UserService
   ) {
     this.user = new User (null, null, null, null, null, null, null, 'ROLE_USER', '');
   }
 
   ngOnInit() {
+
   }
 
   onSubmit(registerForm) {
@@ -31,6 +32,7 @@ export class RegisterComponent implements OnInit {
       response => {
         this.status = 'success';
         registerForm.reset();
+        this.router.navigate(['login']);
       },
       error => {
         this.status = 'error';
@@ -40,7 +42,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onlogin() {
-    this._router.navigate(['login']);
+    this.router.navigate(['login']);
   }
 
 }

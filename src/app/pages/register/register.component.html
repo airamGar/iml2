@@ -2,18 +2,19 @@
   <div class="col-md-6 mx-auto">
     <div class="card">
       <div class="card-header">
-        <h3 class="text-center">Registrarme</h3>  
+        <h3 class="text-center">Registrarme</h3>
       </div>
       <div class="card-body">
         <!-- formulario de inicio de sesion -->
         <div class="container mb-3">
-          <div class="alert alert-success" *ngIf ="status == 'success'">
+          <div class="alert alert-success" *ngIf="status == 'success'">
             El registo fue exitoso
           </div>
-          <div class="alert alert-danger" *ngIf ="status == 'error'">
-            Este email ya ha sido registrado si olvidaste tu contraseña <a href="">haz click aquí</a> 
+          <div class="alert alert-danger" *ngIf="status == 'error'">
+            Este email ya ha sido registrado si olvidaste tu contraseña
+            <a href="">haz click aquí</a>
           </div>
-          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" [(ngModel)]="form">
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
             <div class="form-row mb-3">
               <div class="col-md-6">
                 <label>Nombre:</label>
@@ -76,9 +77,9 @@
               </span>
             </div>
             <div class="col-12 text-center p-0 mt-3">
-                <label>¿Ya tienes una cuenta?</label>
-                <button type="button" class="btn btn-success btn-lg btn-block" (click)="onlogin()">Iniciar Sesión</button>
-              </div>
+              <label>¿Ya tienes una cuenta?</label>
+              <button type="button" class="btn btn-success btn-lg btn-block" (click)="onlogin()">Iniciar Sesión</button>
+            </div>
           </form>
         </div>
       </div>

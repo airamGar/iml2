@@ -1,3 +1,78 @@
-<p>
-  profile works!
-</p>
+<div class="row mt-5">
+  <div class="col-md-8 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Mi perfil</h3>
+      </div>
+      <div class="card-body">
+        <!-- formulario de perfil usuario -->
+        <div class="container mb-3">
+          <div class="alert alert-success" *ngIf="status == 'success'">
+            Tus datos de Han actualizado correctamente !!
+          </div>
+          <div class="alert alert-danger" *ngIf="status == 'error'">
+            No se pudo actualiazar tus datos revisa que los datos esten correctos !!
+          </div>
+          <form #miPerfilForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Sube tu imagen de Perfil</label>
+              <input type="file" class="form-control" >
+            </div>
+            <div class="form-row mb-3">
+              <div class="col-md-6">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" name="name" maxlength="20" #name="ngModel" [(ngModel)]="user.name" placeholder="Nombre"
+                  required>
+                <span *ngIf="!name.valid && name.touched" class="required small">
+                  El nombre es obligatorio
+                </span>
+              </div>
+              <div class="col-md-6">
+                <label>Apellido:</label>
+                <input type="text" class="form-control" name="surname" maxlength="30" #surname="ngModel" [(ngModel)]="user.surname" placeholder="Apellido"
+                  required>
+                <span *ngIf="!surname.valid && surname.touched" class="required small">
+                  El apellido es obligatorio
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Nombre de usuario o de la Empresa:</label>
+              <input type="text" class="form-control" name="contact" maxlength="30" #contact="ngModel" [(ngModel)]="user.contact" placeholder="Nombre de Usuario"
+                required>
+              <span *ngIf="!contact.valid && contact.touched" class="required small">
+                Ingresa un nombre de usuario o el de la empresa
+              </span>
+            </div>
+            <div class="form-group">
+              <label>N° de Teléfono:</label>
+              <input type="text" class="form-control" name="phone" maxlength="10" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Teléfono"
+                required>
+              <span *ngIf="!phone.valid && phone.touched" class="required small">
+                El teléfono es obligatorio
+              </span>
+            </div>
+            <div class="form-group">
+              <label>Email:</label>
+              <input type="email" class="form-control" name="email" maxlength="40" #email="ngModel" [(ngModel)]="user.email" placeholder="Ingresa tu Email"
+                required>
+              <small *ngIf="email.valid && email.touched" class="form-text text-muted">Ingresa tu Email para crear tu usuario </small>
+              <span *ngIf="!email.valid && email.touched" class="required small">
+                El email es obligatorio
+              </span>
+            </div>
+            <input class="btn btn-block btn-primary btn-lg" type="submit" value="Actualizar" [disabled]="!miPerfilForm.form.valid">
+            <div class="col-12 text-center">
+              <span *ngIf="miPerfilForm.form.valid" class="required datatrue">
+                Si los datos estan correctos haz click en Actualizar
+              </span>
+              <span *ngIf="!miPerfilForm.form.valid" class="required small">
+                Debes llenar todos los campos para actualizar tus datos
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
