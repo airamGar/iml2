@@ -1,3 +1,8 @@
 .dropdownHover:hover{
     background-color: #03a9f4;
 }
+
+.imgPerfil {
+    width: 40px; 
+    height: 40px;
+}

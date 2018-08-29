@@ -1,5 +1,5 @@
 <div class="row mt-5">
-  <div class="col-md-8 mx-auto">
+  <div class="col-lg-8 mx-auto">
     <div class="card">
       <div class="card-header">
         <h3 class="text-center">Mi perfil</h3>
@@ -14,9 +14,14 @@
             No se pudo actualiazar tus datos revisa que los datos esten correctos !!
           </div>
           <form #miPerfilForm="ngForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label>Sube tu imagen de Perfil</label>
-              <input type="file" class="form-control" >
+
+            <div class="image_for_edit text-center" *ngIf="user.image && user.image != 'null'">
+              <img class="rounded-circle imgPerfil" src="{{ url + 'mostrarImagenUsuario/' + user.image}}">
+            </div>
+
+            <div class="form-group mt-4 text-center">
+              <label> <h5>Actualiza o sube tu imagen de perfil</h5> </label>
+              <input type="file" class="form-control-file" name="image" (change)="fileChangeEvent($event)" placeholder="">
             </div>
             <div class="form-row mb-3">
               <div class="col-md-6">

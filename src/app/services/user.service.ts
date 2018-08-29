@@ -42,6 +42,12 @@ export class UserService {
 
     }
 
+    getCheck() {
+        let identity = JSON.parse(localStorage.getItem('identity'));
+        let id = identity.id;
+        return this._http.get(this.url + 'comprobarUsuario/' + id).pipe(map(res => res.json()));
+    }
+
     getToken() {
         let token = localStorage.getItem('token');
 
@@ -64,7 +70,7 @@ export class UserService {
             'Authorization': this.getToken()
         });
         return this._http.put(this.url + 'actualizarUsuario/' + user_to_update._id, params, { headers: headers })
-                                .pipe(map(res => res.json()));
+            .pipe(map(res => res.json()));
     }
 }
 

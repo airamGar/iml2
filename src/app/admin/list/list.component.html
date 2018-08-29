@@ -1,3 +1,32 @@
-<p>
-  list works!
-</p>
+<!-- publicaciones -->
+<div class="container shadow p-1 my-2 bg-white rounded borderPublication" *ngFor="let publications of publications" >
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <a [routerLink]="'/detallePropiedad/' + publications._id" >
+                <img class="img-thumbnail" src="{{url + 'mostrar-Imagen-Publicacion/' + publications.image}}" style="width: 100%;">
+            </a>
+            <div class="bg-primary text-center mt-2 rounded col-md-12">
+              <h4 class="text-white"> $ {{publications.price}}</h4>
+            </div>
+        </div>
+        <div class="col-sm-8 px-1">
+          <h5 class="text-primary">{{publications.title}}</h5>
+          <p><i class="fas fa-map-marker-alt"></i> {{publications.province}}, {{publications.city}}, {{publications.sector}} </p>
+          <table class="table">
+              <thead>
+                <tr>
+                  <th><i class="fa fa-bed"></i> {{publications.room}}</th>
+                  <th><i class="fa fa-bath"></i> {{publications.bath}}</th>
+                  <th><i class="fa fa-car"></i> {{publications.park}}</th>
+                  <th><i class="fas fa-vector-square"></i> {{publications.meters}}</th>
+                </tr>
+              </thead>
+          </table>
+          <p class="small">
+              {{publications.description}}
+          </p>
+          <span class="badge badge-pill badge-secondary">Publicado hace 5 dias</span>
+        </div>
+      </div>
+</div>
+

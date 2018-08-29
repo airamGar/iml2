@@ -1,0 +1,97 @@
+<div class="container mt-4" *ngIf="publications" >
+    <!-- encabezado publicacion  -->
+      <div class="row">
+          <div class="col-md-12 col-lg-9">
+            <div>
+              <h2>{{publications.title}}</h2>
+              <div class="row">
+                <div class="col-sm-7">
+                    <small class="form-text text-muted"><i class="fa fa-clock-o"></i> Publicado el: fecha</small>
+                    <small class="form-text text-muted"><i class="fas fa-map-marker-alt"></i> {{publications.province}}, {{publications.city}}, {{publications.sector}}</small>
+                </div>
+                <div class="col-sm-5">
+                  <h2 class="text-white bg-dark text-center shadow rounded">$ {{publications.price}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div>
+            </div>
+          </div>
+        </div>
+    <!-- fotos y contactos -->
+    <div class="row">
+      <!-- fotos -->
+      <div class="col-12 col-md-12 col-lg-9">
+        <div>
+              <img class="img-fluid" src="{{url + 'mostrar-Imagen-Publicacion/' + publications.image}}" style="width: 840px;">
+        </div>
+        <div class="row">
+          <div class="col-12 mt-4">
+            <H4>Descripción de la Propiedad: </H4>
+              <div class="row my-3">
+                <div class="col-md-4 px-1">
+                    <ul class="list-group shadow">
+                        <li class="list-group-item"><p class="mx-2"><i class="fa fa-bed"></i> Habitaciones: {{publications.room}}</p></li>
+                        <li class="list-group-item"><p class="mx-2"><i class="fa fa-bath"></i> baños: {{publications.bath}}</p></li>
+                        <li class="list-group-item"><p class="mx-2"><i class="fa fa-car"></i> Parqueaderos: {{publications.park}}</p></li>
+                      </ul>
+                </div>
+                <div class="col-md-4 px-1">
+                    <ul class="list-group shadow">
+                        <li class="list-group-item"><p class="mx-2"><i class="fas fa-vector-square"></i> Mt2: {{publications.meters}}</p></li>
+                        <li class="list-group-item"><p class="mx-2"><i class="fas fa-couch"></i> Amoblado: {{publications.equipped}}</p></li>
+                        <li class="list-group-item"><p class="mx-2"><i class="fas fa-paw"></i> Mascotas: {{publications.pet}}</p></li>
+                      </ul>
+                </div>
+                <div class="col-md-4 px-1">
+                    <ul class="list-group shadow">
+                        <li class="list-group-item"><p class="mx-2"><i class="fas fa-phone-volume"></i> Teléfono: {{publications.phone}}</p></li>
+                        <li class="list-group-item"><p class="mx-2"><i class="far fa-user"></i> Guardia: {{publications.security}}</p></li>
+                        <li class="list-group-item"><p><i class="far fa-calendar"></i> Antiguedad: {{publications.antiquity}}</p></li>
+                      </ul>
+                </div>
+              </div>
+            <p>{{publications.description}}</p>
+          </div>
+  
+        </div>
+  
+      </div>
+      <!-- contacto usuario -->
+      <div class="col-lg-3">
+        <div>
+          <div class="card shadow">
+              <a href=""><img class="img-thumbnail rounded mx-auto d-block my-2 "src="{{ url + 'mostrarImagenUsuario/' + publications.user.image}}" style="height: 80px;"></a>
+              <div class="card-title mb-0">
+                  <h6 class="text-center">{{publications.user.contact}}</h6>
+                  <h4 class="text-center text-light bg-dark"><i class="fa fa-mobile-phone"></i> 0{{publications.user.phone}}</h4>
+              </div>
+              <div class="card-body">
+                  <form>
+                      <div class="form-group">
+                        <label for="telefonoContacto"><i class="fa fa-mobile-phone"></i> N° Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoContacto" name="telefonoContacto" aria-describedby="textlHelp" placeholder="Teléfono">
+                      </div>
+                      <div class="form-group">
+                          <label for="mensajeContacto"> <i class="fa fa-comment-o"></i> Deja un mensaje</label>
+                          <textarea class="form-control" id="mensajeContacto" name="mensajeContacto" rows="3" placeholder="Escribe un mensaje para ser contactado"></textarea>
+                      </div>
+                      <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="term_contact" name="term_contact">
+                        <label class="form-check-label" for="term_contact">Acepto los Terminos y condiciones</label>
+                      </div>
+                      <button type="submit" class="btn btn-lg btn-block btn-primary">Enviar</button>
+                    </form>
+              </div>
+          </div>
+  
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  <!-- fin container -->
+  </div>

@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../services/user.service';
 
+import { AdminGuard } from '../services/adminGuard';
 import { AdminRoutingModule } from './admin-routing.module';
 
 import {AdminUserComponent} from './admin-user/admin-user.component';
@@ -32,6 +34,6 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AdminGuard, UserService],
 })
 export class AdminModule { }

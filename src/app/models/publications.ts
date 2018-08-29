@@ -1,6 +1,7 @@
 
 export class Publication {
     constructor (
+        public _id: string,
         public province: string,
         public city: string,
         public sector: string,
@@ -17,6 +18,7 @@ export class Publication {
         public park: number,
         public meters: number,
         public antiquity: string,
+        public phone: string,
         public security: string,
         public pet: string,
         public description: string,

@@ -9,9 +9,11 @@ import {EditComponent} from './edit/edit.component';
 import {MessageComponent} from './message/message.component';
 import {ProfileComponent} from './profile/profile.component';
 
+import { AdminGuard } from '../services/adminGuard';
+
 
 const adminRoutes: Routes = [
-  {path: 'adminUser', component: AdminUserComponent,
+  {path: 'adminUser', component: AdminUserComponent, canActivate: [AdminGuard],
     children: [
       {path: 'agregarPropiedad', component: AddComponent},
       {path: 'propiedades', component: ListComponent},

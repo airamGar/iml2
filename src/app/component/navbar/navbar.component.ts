@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import {UserService} from '../../services/user.service';
 import { Router, ActivatedRoute, Params } from '../../../../node_modules/@angular/router';
+import { GLOBAL } from '../../services/global';
 
 
 @Component({
@@ -13,11 +14,14 @@ export class NavbarComponent implements OnInit, DoCheck {
   public identity;
   public _logoutNav;
   public status: string;
+  public url: string;
 
   constructor(
     private _userService: UserService,
     private router: Router
-  ) { }
+  ) {
+    this.url = GLOBAL.url;
+  }
 
   ngOnInit() {
     this.identity = this._userService.getIdentity();

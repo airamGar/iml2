@@ -13,7 +13,11 @@
             <a class="nav-link" routerLink='/home'>
               <i class="fas fa-home mr-1"></i> Inicio</a>
           </li>
+          <li class="mx-2">
+              <button type="button" class="btn btn-success">Publicar Gratis</button>
+          </li>
           </ul>
+          <!-- caja sesion -->
           <ul class="navbar-nav mr-auto" *ngIf="status == 'salir'">
           <li class="nav-item" >
             <a class="nav-link" routerLink='/login'>
@@ -24,12 +28,18 @@
               <i class="fas fa-user mr-1"></i> Registrarme</a>
           </li>
         </ul>
+        <!-- caja perfil -->
         <ul class="navbar-nav" *ngIf="status == 'ingreso'">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown d-flex justify-content-center my-2 my-sm-2 my-md-2 my-lg-0">
+                <img class="rounded-circle imgPerfil mx-2 mx-sm-2 mx-md-2 mx-lg-0" src="{{ url + 'mostrarImagenUsuario/' + identity.image}}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Bienvenido, {{identity.name}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                      <a class="dropdown-item dropdownHover" routerLink="adminUser/propiedades"><i class="fas fa-cog"></i>  Administración</a>
+                      <div class="dropdown-divider"></div>
+                  </div>
                   <a class="dropdown-item dropdownHover" routerLink="adminUser/propiedades"><i class="far fa-building"></i> Propiedades</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item dropdownHover" routerLink="adminUser/agregarPropiedad"><i class="far fa-file-alt"></i> Publicar</a>
@@ -42,7 +52,6 @@
                 </div>
               </li>
         </ul>
-        <button type="button" class="btn btn-success">Publicar Gratis</button>
       </div>
     </div>
   </div>

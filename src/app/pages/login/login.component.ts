@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit, DoCheck {
         if (!this.identity || !this.identity._id) {
           alert('El usuario no se ha logeado correctamente');
         } else {
-          // this.identity.password = '';
+          this.identity.password = '';
           localStorage.setItem('identity', JSON.stringify(this.identity));
           this._userService.singUp(this.user, 'true').subscribe(
             response => {
